@@ -68,12 +68,12 @@ ${block_content}
       </div>
       <div data-location="${location | h}" data-location-name="${location.name | h}">
         [
-        <button type="button" class="staff-debug-reset">${_('Reset Student Attempts')}</button>
+        <button type="button" class="btn-link staff-debug-reset">${_('Reset Student Attempts')}</button>
         % if has_instructor_access:
         |
-        <button type="button" class="staff-debug-sdelete">${_('Delete Student State')}</button>
+        <button type="button" class="btn-link staff-debug-sdelete">${_('Delete Student State')}</button>
         |
-        <button type="button" class="staff-debug-rescore">${_('Rescore Student Submission')}</button>
+        <button type="button" class="btn-link staff-debug-rescore">${_('Rescore Student Submission')}</button>
         % endif
         ]
       </div>
