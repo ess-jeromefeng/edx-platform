@@ -583,10 +583,11 @@ class ProblemMetaTest(ProblemsTest):
                     </multiplechoiceresponse>
             </problem>
         """)
-        return XBlockFixtureDesc('problem', 'TEST PROBLEM', data=xml, grader_type="Final Exam")
+        return XBlockFixtureDesc('problem', 'TEST PROBLEM', data=xml)
 
     def test_grader_type_displayed(self):
         self.courseware_page.visit()
         problem_page = ProblemPage(self.browser)
+        problem_page.wait_for_element_visibility(problem_page.CSS_PROBLEM_HEADER, 'wait for problem header')
         self.assertEqual(problem_page.problem_name, 'TEST PROBLEM')
-        self.assertEqual(problem_page.problem_progress_graded_value, "1 point possible (graded)")
+        self.assertEqual(problem_page.problem_progress_graded_value(), "1 point possible (graded)")

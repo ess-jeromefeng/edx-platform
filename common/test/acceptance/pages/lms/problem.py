@@ -2,7 +2,7 @@
 Problem Page.
 """
 from bok_choy.page_object import PageObject
-
+import time
 
 class ProblemPage(PageObject):
     """
@@ -237,4 +237,5 @@ class ProblemPage(PageObject):
         return self.q(css="div.problem .wrapper-problem-response .question-description").text
 
     def problem_progress_graded_value(self):
-        return self.q(css='.problem-progress').text
+        self.wait_for_element_visibility('.problem-progress', "Problem progress is visible")
+        return self.q(css='.problem-progress').text[0]
