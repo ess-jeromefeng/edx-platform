@@ -235,3 +235,6 @@ class ProblemPage(PageObject):
         Return a list of question descriptions of the problem.
         """
         return self.q(css="div.problem .wrapper-problem-response .question-description").text
+
+    def problem_progress_graded_value(self):
+        return self.q(css='.problem-progress').text
